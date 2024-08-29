@@ -1,0 +1,12 @@
+// Arial
+@include font-face("Arial", "../fonts/Arial-Narrow", 400, normal);
+@include font-face("Arial", "../fonts/Arial-Bold", 700, normal);
+
+// TNR
+@include font-face(
+  "TimesNewRoman",
+  "../fonts/TimesNewRoman-Regular",
+  400,
+  normal
+);
+@include font-face("TimesNewRoman", "../fonts/TimesNewRoman-Bold", 700, normal);

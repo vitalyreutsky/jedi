@@ -1,0 +1,28 @@
+.projects {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__title,
+  &__description {
+    font-family: $tnr;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  &__description {
+    font-size: 34px;
+    line-height: 47.6px;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}

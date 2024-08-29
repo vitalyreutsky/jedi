@@ -1,0 +1,69 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: $white;
+  transition: all 0.2s ease-in-out;
+  z-index: 100;
+
+  &__wrapper {
+    @include flex-all-sb;
+    padding: 20px 77px;
+  }
+
+  &__logo {
+    max-width: 268px;
+
+    svg,
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__nav {
+    .nav {
+      &__list {
+        @include flex-all-center;
+        gap: 34px;
+      }
+
+      &__link {
+        position: relative;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 19.5px;
+        text-transform: uppercase;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $green;
+          transition: all 0.2s ease-in-out;
+          opacity: 0;
+        }
+
+        &.active {
+          &::after {
+            opacity: 1;
+          }
+        }
+
+        @include for-desktop {
+          &:hover {
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
