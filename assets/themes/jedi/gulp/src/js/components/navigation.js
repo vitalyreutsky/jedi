@@ -1,3 +1,5 @@
+"use strict";
+
 let contentBlocks = [];
 let common_link = "";
 let base_link = "";
@@ -50,8 +52,12 @@ const getSectionInViewportKey = (nodes) => {
   let min_section_top_from_viewport = 120;
 
   if (window.scrollY <= 200) {
-    document.querySelectorAll(`.navigation__item`).forEach((i) => {
+    document.querySelectorAll(`.navigation__item`).forEach((i, ind) => {
       i.classList.remove("active");
+
+      if (ind == 0) {
+        i.classList.add("active");
+      }
     });
     return "break";
   }
