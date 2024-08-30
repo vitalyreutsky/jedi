@@ -1,6 +1,6 @@
 .hero {
   &__container {
-    @include mobile {
+    @include small-tablet {
       padding: 0;
     }
   }
