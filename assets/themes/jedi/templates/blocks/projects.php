@@ -28,7 +28,7 @@ if (!empty($used_categories) && !is_wp_error($used_categories)) {
 }
 ?>
 <section class="projects" <?php echo isset($block['anchor']) ? 'id="' . $block['anchor'] . '"' : false ?>>
-   <div class="container">
+   <div class="container projects__container">
       <div class="projects__wrapper">
          <?php if ($title || $description) : ?>
             <div class="projects__text">

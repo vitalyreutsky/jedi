@@ -2,7 +2,7 @@
 
 <?php if (!empty($images)) : ?>
    <section class="hero" <?php echo isset($block['anchor']) ? 'id="' . $block['anchor'] . '"' : false ?>>
-      <div class="container">
+      <div class="container hero__container">
          <div class="hero__wrapper">
             <div class="swiper hero__images">
                <div class="swiper-wrapper hero__images-wrapper">

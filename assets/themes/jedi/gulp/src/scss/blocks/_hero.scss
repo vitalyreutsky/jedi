@@ -1,4 +1,10 @@
 .hero {
+  &__container {
+    @include mobile {
+      padding: 0;
+    }
+  }
+
   &__images-wrapper {
     max-height: 611px;
   }

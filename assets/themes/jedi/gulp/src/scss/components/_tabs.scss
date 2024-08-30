@@ -6,6 +6,10 @@
   &__nav {
     @include flex-all-center;
     gap: 35px;
+
+    @include small-tablet {
+      flex-direction: column;
+    }
   }
 
   &__nav-btn {
@@ -53,9 +57,19 @@
   &__content-item {
     display: none;
     flex-wrap: wrap;
+    justify-content: center;
 
     &.active {
       display: flex;
+    }
+
+    @include small-tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include mobile {
+      gap: 20px;
     }
   }
 
@@ -66,6 +80,20 @@
 
     img {
       width: 100%;
+    }
+
+    @include tablet {
+      width: 50%;
+    }
+
+    @include small-tablet {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    @include mobile {
+      max-width: 100%;
+      padding: 0;
     }
   }
 }

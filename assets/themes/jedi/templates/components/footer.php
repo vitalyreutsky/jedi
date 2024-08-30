@@ -1,5 +1,6 @@
 <?php
 $dark_logo = get_field('dark_logo', 'options');
+$dark_logo_mobile = get_field('dark_logo_mobile', 'options');
 $adress = get_field('adress', 'options');
 $phone = get_field('phone', 'options');
 $email = get_field('e-mail', 'options');
@@ -24,6 +25,12 @@ $posts = get_posts($args);
         <?php if ($dark_logo) : ?>
           <a href="<?php echo esc_url(home_url('/')); ?>" class="footer__logo">
             <?php echo App\Base\SvgSupport::get_inline_svg_by_id($dark_logo); ?>
+          </a>
+        <?php endif; ?>
+
+        <?php if ($dark_logo_mobile) : ?>
+          <a href="<?php echo esc_url(home_url('/')); ?>" class="footer__logo footer__logo--mobile">
+            <?php echo App\Base\SvgSupport::get_inline_svg_by_id($dark_logo_mobile); ?>
           </a>
         <?php endif; ?>
 

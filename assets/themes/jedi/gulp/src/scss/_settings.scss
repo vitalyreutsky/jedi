@@ -1,10 +1,3 @@
-@media screen and (max-width: 768px) {
-  html,
-  body {
-    overflow: auto !important;
-  }
-}
-
 *,
 *::before,
 *::after {
@@ -17,6 +10,10 @@
   outline-style: none;
   -webkit-tap-highlight-color: transparent;
   scroll-margin-top: 70px;
+
+  @include small-tablet {
+    scroll-margin-top: 50px;
+  }
 }
 
 html {
@@ -37,6 +34,10 @@ html {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+
+  @include small-tablet {
+    padding-top: 57px;
+  }
 }
 
 h1,
@@ -53,6 +54,10 @@ p {
 main {
   padding-top: 115px;
   flex: 1 1 auto;
+
+  @include small-tablet {
+    padding: 0;
+  }
 }
 
 img {
@@ -141,6 +146,10 @@ section {
 
   &:first-of-type {
     padding-top: 0;
+  }
+
+  @include small-tablet {
+    padding: 20px 0;
   }
 }
 
