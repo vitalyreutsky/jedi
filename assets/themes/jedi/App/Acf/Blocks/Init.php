@@ -10,6 +10,7 @@ final class Init
 	private static array $blocks = array(
 		General\Hero::class,
 		General\Projects::class,
+		General\Features::class,
 	);
 
 	public function __construct()

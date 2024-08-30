@@ -29,7 +29,7 @@ final class Projects implements \App\Acf\Blocks\Helpers\BlockItem
                     'description' => "Projects block"
                 ),
                 'block-default',
-                'mytheme'
+                'jedi'
             )
         );
     }

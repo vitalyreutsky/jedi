@@ -60,7 +60,12 @@
   }
 
   &__content-item-image {
+    display: flex;
     width: 33%;
     padding: 10px;
+
+    img {
+      width: 100%;
+    }
   }
 }

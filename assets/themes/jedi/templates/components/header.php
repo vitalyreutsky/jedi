@@ -26,7 +26,7 @@ $header__logo = get_field('header_logo', 'options');
                      foreach ($nav_items as $ind => $nav_item) :
                      ?>
                         <li class="nav__item">
-                           <a href="<?php echo esc_url($nav_item->url); ?>" class="nav__link navigation__item <?php echo $ind === 0 ? 'active' : null; ?>">
+                           <a href="<?php echo esc_url($nav_item->url); ?>" class="nav__link navigation__item">
                               <?php echo esc_html($nav_item->title); ?>
                            </a>
                         </li>

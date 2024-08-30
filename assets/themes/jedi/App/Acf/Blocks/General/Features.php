@@ -5,17 +5,17 @@ namespace App\Acf\Blocks\General;
 use App\Acf\Blocks\Helpers\Block;
 use App\Acf\Blocks\RegisterBlock;
 
-final class Hero implements \App\Acf\Blocks\Helpers\BlockItem
+final class Features implements \App\Acf\Blocks\Helpers\BlockItem
 {
 
     public static function setBlockParams(): void
     {
         RegisterBlock::addBlock(
             new Block(
-                'hero',
-                'Hero',
-                'Hero block',
-                'templates/blocks/hero.php',
+                'features',
+                'Features',
+                'Features block',
+                'templates/blocks/features.php',
                 '',
                 '',
                 array(
@@ -25,8 +25,8 @@ final class Hero implements \App\Acf\Blocks\Helpers\BlockItem
                     'anchor' => true,
                 ),
                 array(
-                    'title'       => "Hero block",
-                    'description' => "Hero block"
+                    'title'       => "features block",
+                    'description' => "features block"
                 ),
                 'block-default',
                 'jedi'
