@@ -22,15 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     if (foundSection && activeSection !== foundSection.id) {
       activeSection = foundSection.id;
-      mobileMenuText.textContent = foundSection.id;
+      mobileMenuText.textContent = capitalizeFirstLetter(foundSection.id);
 
       setActiveSection(activeSection);
     }
   };
 
   const savedSection = localStorage.getItem("activeSection");
-  if (savedSection) {
+
+  if (savedSection && document.getElementById(savedSection)) {
+    document.getElementById(savedSection).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
     setActiveSection(savedSection);
+  } else {
+    handleScroll();
   }
 
   navItems.forEach((link, index) => {
@@ -54,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function capitalizeFirstLetter(str) {
-    if (!str) return str; // Проверка на пустую строку
+    if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
