@@ -8,7 +8,7 @@ $title_contacts = get_field('title_contacts', 'options');
    <?php endif; ?>
 
    <div class="footer__column-form">
-      <form class="form">
+      <form class="form" novalidate>
          <div class="form__fields">
             <div class="form__field form__field--name">
                <input type="text" name="name" placeholder="Your Name*:">
