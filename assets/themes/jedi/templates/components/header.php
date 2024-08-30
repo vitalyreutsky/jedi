@@ -37,7 +37,7 @@ $light_logo_mobile = get_field('light_logo_mobile', 'options');
             </div>
          <?php endif; ?>
 
-         <button class="btn-reset burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
+         <button class="btn-reset burger" aria-label="Open menu" aria-expanded="false" data-burger>
             <span class="burger__line"></span>
          </button>
 

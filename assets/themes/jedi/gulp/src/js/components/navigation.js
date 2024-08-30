@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const setActiveSection = (id) => {
     localStorage.setItem("activeSection", id);
     navItems.forEach((item) => {
-      const capitalized = capitalizeFirstLetter(id);
-      mobileMenuText.textContent = capitalized;
       item.classList.toggle("active", item.getAttribute("href") === `#${id}`);
     });
+
+    if (mobileMenuText) {
+      mobileMenuText.textContent = capitalizeFirstLetter(id);
+    }
   };
 
   const handleScroll = () => {
@@ -19,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         section.getBoundingClientRect().top < offsetTop &&
         section.getBoundingClientRect().bottom > offsetTop
     );
+
     if (foundSection) {
       const id = foundSection.id;
       if (localStorage.getItem("activeSection") !== id) {
@@ -39,28 +42,54 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Сразу прокручиваем к сохраненной секции или первой секции при загрузке страницы
-  const savedSection = localStorage.getItem("activeSection");
-  if (savedSection && document.getElementById(savedSection)) {
-    setTimeout(() => {
-      scrollToSection(savedSection);
-    }, 100); // Небольшая задержка для обработки переходов
-  } else {
-    handleScroll();
-  }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setActiveSection("");
+  };
 
-  navItems.forEach((link) => {
+  navItems.forEach((link, index) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const id = link.getAttribute("href").substring(1);
-      scrollToSection(id);
+
+      if (index === 0) {
+        scrollToTop();
+      } else {
+        scrollToSection(id);
+      }
     });
   });
+
+  const restoreActiveSection = () => {
+    const savedSection = localStorage.getItem("activeSection");
+    if (savedSection) {
+      setTimeout(() => {
+        const section = document.getElementById(savedSection);
+        if (section) {
+          requestAnimationFrame(() => {
+            section.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "nearest",
+            });
+            setActiveSection(savedSection);
+          });
+        }
+      }, 100);
+    } else {
+      scrollToTop();
+    }
+  };
+
+  restoreActiveSection();
 
   window.addEventListener("scroll", handleScroll);
 
   function capitalizeFirstLetter(str) {
-    if (!str) return str; // Проверка на пустую строку
+    if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 });
