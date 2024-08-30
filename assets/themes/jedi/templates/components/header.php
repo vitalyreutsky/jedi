@@ -6,15 +6,15 @@ if ($header_menu_location) {
    $nav_items = wp_get_nav_menu_items($header_menu_location);
 }
 
-$header__logo = get_field('header_logo', 'options');
+$light__logo = get_field('light_logo', 'options');
 ?>
 
 <header class="header">
    <div class="container">
       <div class="header__wrapper">
-         <?php if ($header__logo) : ?>
+         <?php if ($light__logo) : ?>
             <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo">
-               <?php echo App\Base\SvgSupport::get_inline_svg_by_id($header__logo); ?>
+               <?php echo App\Base\SvgSupport::get_inline_svg_by_id($light__logo); ?>
             </a>
          <?php endif; ?>
 

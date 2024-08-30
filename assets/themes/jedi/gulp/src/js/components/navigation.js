@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const contentBlocks = document.querySelectorAll("section");
+
   const navItems = document.querySelectorAll('.navigation__item[href^="#"]');
   const offsetTop = 150;
   let activeSection = "";

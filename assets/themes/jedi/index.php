@@ -10,5 +10,11 @@
  */
 
 get_header();
-
-the_content();
+?>
+<main class="main">
+   <div class="container">
+      <?php the_content(); ?>
+   </div>
+</main>
+<?php
+get_footer(); ?>

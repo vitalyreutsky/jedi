@@ -6,7 +6,7 @@ $cards = get_field('cards');
 <section class="features" <?php echo isset($block['anchor']) ? 'id="' . $block['anchor'] . '"' : false ?>>
    <div class="container">
       <div class="features__wrapper">
-         <?php if ($title) : ?>
+         <?php if (!empty($title)) : ?>
             <h2 class="features__title"><?php echo esc_html($title); ?></h2>
          <?php endif; ?>
 
