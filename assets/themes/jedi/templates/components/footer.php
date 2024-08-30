@@ -10,7 +10,6 @@ if ($footer_menu_location) {
 // options
 $anchor = get_field('footer_anchor', 'options');
 $copyright = get_field('copyright', 'options');
-
 ?>
 
 <footer class="footer" <?php echo isset($anchor) ? 'id="' . $anchor . '"' : false ?>>
