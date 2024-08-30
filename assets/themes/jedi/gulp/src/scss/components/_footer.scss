@@ -1,18 +1,23 @@
 .footer {
+  padding: 26px 80px 20px;
   background-color: #303030;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     gap: 70px;
-    padding: 26px 80px 20px;
 
     @include tablet {
       flex-wrap: wrap;
     }
 
     @include small-tablet {
-      padding: 50px 20px;
       justify-content: center;
     }
   }
@@ -203,10 +208,32 @@
     }
   }
 
+  &__copyright {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: $light-gray;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      transition: all 0.2s ease-in-out;
+
+      @include for-desktop {
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+
   @include small-tablet {
+    padding: 50px 20px;
+
     &__social,
     &__info-item--phone,
-    &__info-item--email {
+    &__info-item--email,
+    &__copyright {
       display: none;
     }
   }

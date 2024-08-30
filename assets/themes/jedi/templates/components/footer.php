@@ -1,4 +1,11 @@
 <?php
+$locations = get_nav_menu_locations();
+$footer_menu_location = isset($locations['footer-menu']) ? $locations['footer-menu'] : null;
+
+if ($footer_menu_location) {
+  $nav_items = wp_get_nav_menu_items($footer_menu_location);
+}
+
 $dark_logo = get_field('dark_logo', 'options');
 $dark_logo_mobile = get_field('dark_logo_mobile', 'options');
 $adress = get_field('adress', 'options');
@@ -8,6 +15,7 @@ $social_media = get_field('social_media', 'options');
 $title_posts = get_field('title_posts', 'options');
 $title_contacts = get_field('title_contacts', 'options');
 $anchor = get_field('footer_anchor', 'options');
+$copyright = get_field('copyright', 'options');
 
 $args = [
   'post_type'      => 'post',
@@ -19,7 +27,7 @@ $posts = get_posts($args);
 ?>
 
 <footer class="footer" <?php echo isset($anchor) ? 'id="' . $anchor . '"' : false ?>>
-  <div class="container">
+  <div class="container footer__container">
     <div class="footer__wrapper">
       <div class="footer__column footer__column--info">
         <?php if ($dark_logo) : ?>
@@ -108,5 +116,19 @@ $posts = get_posts($args);
         </div>
       </div>
     </div>
+
+    <?php if (!empty($nav_items) || !empty($copyright)) {
+      if (!empty($copyright)) : ?>
+        <p class="footer__copyright"><?php echo $copyright; ?>
+          <?php foreach ($nav_items as $key => $nav_item) {
+            if ($key == 0) : ?>
+              <a href="<?php echo esc_url($nav_item->url); ?>">
+                <?php echo esc_html($nav_item->title); ?>
+              </a>
+          <?php endif;
+          } ?>
+        </p>
+    <?php endif;
+    } ?>
   </div>
 </footer>

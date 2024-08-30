@@ -9,6 +9,7 @@ final class Bootstrap
 
     public const MENUS = [
         'header'       => 'header-menu',
+        'footer'       => 'footer-menu',
     ];
 
     public function __construct()
@@ -124,6 +125,7 @@ final class Bootstrap
         register_nav_menus(
             array(
                 self::MENUS['header'] => __('Header Menu', TM_TEXTDOMAIN),
+                self::MENUS['footer'] => __('Footer Menu', TM_TEXTDOMAIN),
             )
         );
     }
@@ -132,6 +134,13 @@ final class Bootstrap
     {
         wp_nav_menu(array(
             'theme_location' => self::MENUS['header']
+        ));
+    }
+
+    public static function bootstrap_footer_menu()
+    {
+        wp_nav_menu(array(
+            'theme_location' => self::MENUS['footer']
         ));
     }
 
